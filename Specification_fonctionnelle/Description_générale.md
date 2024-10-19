@@ -8,6 +8,7 @@ L'application a pour but de faciliter la saisie et la gestion des temps de trava
 Le projet est réalisé dans un cadre Agile, favorisant des itérations rapides et une collaboration étroite entre les membres de l'équipe. L'équipe de développement est composée de développeurs, de designers et d'un chef de projet. Les feedbacks des utilisateurs finaux sont pris en compte à chaque étape pour s'assurer que l'application répond aux besoins pratiques du quotidien.
 
 # Fonctionnalités principales
+
 ## Page d'accueil avec sélection des sprints et membres
 
 . La page d'accueil présente une interface claire où les utilisateurs peuvent sélectionner le sprint en cours et choisir un membre de l'équipe.
