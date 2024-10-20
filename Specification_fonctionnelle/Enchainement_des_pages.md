@@ -10,7 +10,7 @@ Sélectionner un jour du sprint.
 Cliquer sur "Saisir Temps" à côté du nom d'un membre.
 
 # Formulaire de saisie des temps
-## ransition :
+## Transition :
 
 Lorsque l'utilisateur clique sur "Saisir Temps", il est redirigé vers le formulaire de saisie.
 
