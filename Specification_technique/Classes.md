@@ -57,7 +57,7 @@ Gère la logique de saisie et de modification des temps.
 
 ### Description
 Représente un système de connexion pour les utilisateurs.
-Ne sera mis en place que si nous avons le temps nécessaire pour le mettre en place.
+Ne sera mise en place que si nous avons le temps nécessaire pour le mettre en place.
 
 ### Méthodes
 - **Authentifier (string email, string motDePasse)** : Authentifie un utilisateur.
