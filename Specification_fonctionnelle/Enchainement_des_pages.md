@@ -5,9 +5,9 @@ C'est la première page accessible après la connexion à l'application. Elle af
 
 ## Actions possibles :
 
-Choisir un sprint dans le menu déroulant.
-Sélectionner un jour du sprint.
-Cliquer sur "Saisir Temps" à côté du nom d'un membre.
+- Choisir un sprint dans le menu déroulant.
+- Sélectionner un jour du sprint.
+- Cliquer sur "Saisir Temps" à côté du nom d'un membre.
 
 # Formulaire de saisie des temps
 ## Transition :
@@ -20,9 +20,9 @@ Ce formulaire permet de saisir le temps passé par le membre sur une catégorie 
 
 ## Actions possibles :
 
-Sélectionner une catégorie de travail.
-Saisir le temps (en fractions de journée).
-Soumettre le formulaire ou annuler pour revenir à la page d'accueil.
+- Sélectionner une catégorie de travail.
+- Saisir le temps (en fractions de journée).
+- Soumettre le formulaire ou annuler pour revenir à la page d'accueil.
 
 # Retour à la page d'accueil
 ## Transition :
@@ -31,8 +31,8 @@ Après avoir soumis le formulaire avec succès, l'utilisateur est redirigé vers
 
 ## Actions possibles :
 
-Continuer à saisir des temps pour d'autres membres.
-Visualiser les temps saisis.
+- Continuer à saisir des temps pour d'autres membres.
+- Visualiser les temps saisis.
 
 # Affichage des temps saisis
 ## Transition :
@@ -45,8 +45,8 @@ Une liste des temps saisis pour le membre sélectionné s'affiche, incluant les 
 
 ## Actions possibles :
 
-Modifier ou supprimer une saisie existante.
-Retourner à la page d'accueil.
+- Modifier ou supprimer une saisie existante.
+- Retourner à la page d'accueil.
 
 # Modification d'une saisie
 ## Transition :
@@ -73,5 +73,5 @@ Une confirmation de suppression s'affiche pour éviter les erreurs.
 
 ## Actions possibles :
 
-Confirmer la suppression, ce qui renvoie l'utilisateur à la page d'affichage des temps saisis.
-Annuler la suppression pour revenir à la page d'affichage.
+- Confirmer la suppression, ce qui renvoie l'utilisateur à la page d'affichage des temps saisis.
+- Annuler la suppression pour revenir à la page d'affichage.

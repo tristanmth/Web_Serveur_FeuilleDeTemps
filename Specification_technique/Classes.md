@@ -11,8 +11,8 @@ Représente un membre de l'équipe qui saisit ses temps de travail.
 - **Email (string)** : Adresse email de l'utilisateur.
 
 ### Méthodes
-- **AjouterTemps(DateTime date, string categorie, double temps)** : Ajoute le temps saisi.
-- **ModifierTemps(DateTime date, string categorie, double nouveauTemps)** : Modifie le temps saisi.
+- **AjouterTemps (DateTime date, string categorie, double temps)** : Ajoute le temps saisi.
+- **ModifierTemps (DateTime date, string categorie, double nouveauTemps)** : Modifie le temps saisi.
 - **GetTotalTemps()** : Retourne le temps total saisi.
 
 ## Classe Sprint
@@ -28,7 +28,7 @@ Représente une période de travail définie pour l'équipe.
 - **Membres (List<Utilisateur>)** : Liste des utilisateurs participant au sprint.
 
 ### Méthodes
-- **AjouterMembre(Utilisateur utilisateur)** : Ajoute un membre au sprint.
+- **AjouterMembre (Utilisateur utilisateur)** : Ajoute un membre au sprint.
 - **GetDuréeSprint()** : Calcule la durée totale du sprint.
 
 
@@ -50,5 +50,16 @@ Représente une catégorie d'éléments de travail.
 Gère la logique de saisie et de modification des temps.
 
 ### Méthodes
-- **SaisirTemps(Utilisateur utilisateur, DateTime date, string categorie, double temps)** : Saisit le temps pour un utilisateur.
-- **ModifierTemps(Utilisateur utilisateur, DateTime date, string categorie, double nouveauTemps)** : Modifie le temps saisi pour un utilisateur.
+- **SaisirTemps (Utilisateur utilisateur, DateTime date, string categorie, double temps)** : Saisit le temps pour un utilisateur.
+- **ModifierTemps (Utilisateur utilisateur, DateTime date, string categorie, double nouveauTemps)** : Modifie le temps saisi pour un utilisateur.
+
+## Classe Connexion (Optionnelle)
+
+### Description
+Représente un système de connexion pour les utilisateurs.
+Ne sera mis en place que si nous avons le temps nécessaire pour le mettre en place.
+
+### Méthodes
+- **Authentifier (string email, string motDePasse)** : Authentifie un utilisateur.
+- **Deconnecter()** : Déconnecte l'utilisateur.
+
