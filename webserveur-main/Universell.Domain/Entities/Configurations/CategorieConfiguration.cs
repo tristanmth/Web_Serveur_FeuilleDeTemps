@@ -1,10 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Universell.Domain.Entities;
 
 namespace Universell.Domain.Entities.Configurations
 {
@@ -12,12 +8,10 @@ namespace Universell.Domain.Entities.Configurations
     {
         public void Configure(EntityTypeBuilder<Categorie> builder)
         {
-            builder.ToTable("Categorie");
+            builder.ToTable("Categories");
             builder.HasKey(c => c.Id);
-            builder.HasOne(c => c.Parent)
-                   .WithMany(c => c.SubCategories)
-                   .HasForeignKey(c => c.ParentId);
+            builder.Property(c => c.Nom).IsRequired().HasMaxLength(100);
         }
     }
-
 }
+

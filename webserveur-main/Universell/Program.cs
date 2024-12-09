@@ -1,46 +1,23 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Universell.DomainsInit;
-using Universell.ServicesInit;
+using Microsoft.EntityFrameworkCore;
+using Universell.Services;
+using Universell;
+using Universell.Domain; // Add this line to include the namespace for ApplicationDbContext
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.
-    AddDatabaseAndIdentityService(builder.Configuration)
-    .AddMetier()
-    .ConfigureApplicationCookie(options =>
-    {
-        options.LoginPath = "/Account/Login"; // Chemin de la page de connexion
-        options.AccessDeniedPath = "/Account/AccessDenied"; // (Facultatif) Page d'accès interdit
-    })
-    .AddControllersWithViews(options =>
-    {
-        var policy = new AuthorizationPolicyBuilder()
-            .RequireAuthenticatedUser()
-            .Build();
-        options.Filters.Add(new AuthorizeFilter(policy));
-    });
-
+builder.Services.AddRazorPages();
+builder.Services.AddDbContext<UniversellDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<ISprintService, SprintService>();
+builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
 
 var app = builder.Build();
 
-// Créer les rôles au démarrage (si nécessaires)
-using (var scope = app.Services.CreateScope())
-{
-    await scope.MigrationsAndSeedingAsync();
-}
-
-
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
 
@@ -51,8 +28,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages();
 
 app.Run();

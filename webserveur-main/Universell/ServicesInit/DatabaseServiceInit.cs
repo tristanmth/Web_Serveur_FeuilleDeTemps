@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Universell.Domain;
 using Universell.Domain.Entities;
 using Universell.Utils.Constants;
 
@@ -75,7 +76,7 @@ namespace Universell.DomainsInit
             var adminUser = await userManager.FindByNameAsync(adminUsername);
             if (adminUser == null)
             {
-                adminUser = new Utilisateur { UserName = adminUsername, Email = adminEmail };
+                adminUser = new Utilisateur { Nom = adminUsername, Email = adminEmail };
                 var result = await userManager.CreateAsync(adminUser, adminPassword);
 
                 if (result.Succeeded)
