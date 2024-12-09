@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Universell - Inscription";
+}
+
+@model Universell.Models.RegisterModel
+
+<div class="register-container | sequel col | highlight-container">
+    <h1>Inscription</h1>
+    @await Html.PartialAsync("~/Views/Shared/_ErrorMessages.cshtml")
+    <form class="| sequel col" method="post">
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.Query["returnUrl"]" />
+        <div class="input-container">
+            <label asp-for="Login">Login</label>
+            <input asp-for="Login" />
+            <span asp-validation-for="Login" class="font-error"></span>
+        </div>
+        <div class="input-container">
+            <label asp-for="Password">Mot de passe</label>
+            <input asp-for="Password" type="password" />
+            <span asp-validation-for="Password" class="font-error"></span>
+            <div class="password-explication">
+                <p>Votre mot de passe doit respecter ces critères:</p>
+                <ul>
+                    <li>Au moins une miniscule</li>
+                    <li>Au moins une majuscule</li>
+                    <li>Au moins un caractère spéciaux (*, $, ?, ...)</li>
+                    <li>Au moins un chiffre</li>
+                    <li>Il doit être d’une longueur minimum de 8 caractères</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="ConfirmPassword">Répétez votre mot de passe</label>
+            <input asp-for="ConfirmPassword" type="password" />
+            <span asp-validation-for="ConfirmPassword" class="font-error"></span>
+        </div>
+        <div class="submit-container">
+            <button type="submit">Inscription</button>
+        </div>
+        <a asp-controller="Account" asp-action="Login">Vous avez déjà un compte? Connectez vous!</a>
+    </form>
+</div>
