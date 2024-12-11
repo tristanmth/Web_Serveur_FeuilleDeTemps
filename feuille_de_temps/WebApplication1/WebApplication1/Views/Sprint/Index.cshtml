@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Sprint>
+
+@{
+    ViewData["Title"] = "Sprints";
+}
+
+<h1>Liste des Sprints</h1>
+
+<a href="@Url.Action("Create", "Sprint")" class="btn btn-success mb-3">Créer un nouveau Sprint</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sprint in Model)
+        {
+            <tr>
+                <td>@sprint.Nom</td>
+                <td>@sprint.DateDebut.ToShortDateString()</td>
+                <td>@sprint.DateFin.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("Details", "Sprint", new { id = sprint.Id })" class="btn btn-info">Détails</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

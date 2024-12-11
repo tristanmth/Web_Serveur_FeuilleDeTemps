@@ -1,0 +1,54 @@
+﻿@model Sprint
+
+@{
+    ViewData["Title"] = "Détails du Sprint";
+}
+
+<h1>Détails du Sprint : @Model.Nom</h1>
+
+<p><strong>Date de début :</strong> @Model.DateDebut.ToShortDateString()</p>
+<p><strong>Date de fin :</strong> @Model.DateFin.ToShortDateString()</p>
+
+<h2>Membres</h2>
+@if (Model.Membres.Any())
+{
+    <ul>
+        @foreach (var membre in Model.Membres)
+        {
+            <li>@membre.Nom (@membre.Role)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Aucun membre assigné à ce Sprint.</p>
+}
+
+<a href="@Url.Action("Index", "Sprint")" class="btn btn-secondary">Retour à la liste</a>
+@model Sprint
+
+@{
+    ViewData["Title"] = "Détails du Sprint";
+}
+
+<h1>Détails du Sprint : @Model.Nom</h1>
+
+<p><strong>Date de début :</strong> @Model.DateDebut.ToShortDateString()</p>
+<p><strong>Date de fin :</strong> @Model.DateFin.ToShortDateString()</p>
+
+<h2>Membres</h2>
+@if (Model.Membres.Any())
+{
+    <ul>
+        @foreach (var membre in Model.Membres)
+        {
+            <li>@membre.Nom (@membre.Role)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Aucun membre assigné à ce Sprint.</p>
+}
+
+<a href="@Url.Action("Index", "Sprint")" class="btn btn-secondary">Retour à la liste</a>
