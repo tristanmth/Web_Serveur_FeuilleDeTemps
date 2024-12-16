@@ -141,9 +141,8 @@ namespace WebTimeSheetManagement.Controllers
 
                 var isExistsinTimesheet = _IProject.CheckProjectIDExistsInTimesheet(Convert.ToInt32(ProjectID));
 
-                var isExistsinExpense = _IProject.CheckProjectIDExistsInExpense(Convert.ToInt32(ProjectID));
-
-                if (isExistsinTimesheet == false && isExistsinExpense == false)
+               
+                if (isExistsinTimesheet == false)
                 {
                     var data = _IProject.ProjectDelete(Convert.ToInt32(ProjectID));
 

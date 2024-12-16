@@ -20,7 +20,7 @@ namespace WebTimeSheetManagement.Concrete
         public DbSet<ProjectMaster> ProjectMaster { get; set; }
         public DbSet<TimeSheetMaster> TimeSheetMaster { get; set; }
         public DbSet<TimeSheetDetails> TimeSheetDetails { get; set; }
-        public DbSet<ExpenseModel> ExpenseModel { get; set; }
+      // public DbSet<ExpenseModel> ExpenseModel { get; set; }
         public DbSet<Documents> Documents { get; set; }
         public DbSet<TimeSheetAuditTB> TimeSheetAuditTB { get; set; }
         public DbSet<ExpenseAuditTB> ExpenseAuditTB { get; set; }

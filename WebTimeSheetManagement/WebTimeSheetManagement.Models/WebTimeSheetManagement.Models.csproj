@@ -100,6 +100,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApprovalModel.cs" />
     <Compile Include="AssignedRoles.cs" />
     <Compile Include="AssignRolesModel.cs" />
     <Compile Include="AuditTB.cs" />
