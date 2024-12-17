@@ -107,6 +107,7 @@
     <Compile Include="AssignRolesConcrete.cs" />
     <Compile Include="AuditConcrete.cs" />
     <Compile Include="LoginConcrete.cs" />
+    <Compile Include="NotificationConcrete.cs" />
     <Compile Include="ProjectConcrete.cs" />
     <Compile Include="RegistrationConcrete.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

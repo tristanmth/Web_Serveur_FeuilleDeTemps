@@ -19,6 +19,10 @@ IF EXISTS (SELECT * FROM sys.tables WHERE name = 'TimeSheetDetails')
 DROP TABLE dbo.TimeSheetDetails;
 IF EXISTS (SELECT * FROM sys.tables WHERE name = 'TimeSheetMaster')
 DROP TABLE dbo.TimeSheetMaster;
+IF EXISTS (SELECT * FROM sys.tables WHERE name = 'NotificationsTB')
+DROP TABLE dbo.NotificationsTB;
+IF EXISTS (SELECT * FROM sys.tables WHERE name = 'DescriptionTB')
+DROP TABLE dbo.DescriptionTB;
 
 CREATE TABLE [dbo].[Registration](
 	[RegistrationID] [int] IDENTITY(1,1) NOT NULL,
@@ -163,6 +167,19 @@ CREATE TABLE [dbo].[NotificationsTB](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+CREATE TABLE [dbo].[DescriptionTB](
+	[DescriptionID] [int] IDENTITY(1,1) NOT NULL,
+	[Description] [varchar](100) NULL,
+	[ProjectID] [int] NULL,
+	[TimeSheetMasterID] [int] NULL,
+	[CreatedOn] [datetime] NULL,
+	[UserID] [int] NULL,
+ CONSTRAINT [PK_DescriptionTB] PRIMARY KEY CLUSTERED 
+(
+	[DescriptionID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
 CREATE TABLE [dbo].[Documents](
 	[DocumentID] [int] IDENTITY(1,1) NOT NULL,
 	[DocumentName] [varchar](50) NULL,
@@ -178,41 +195,10 @@ CREATE TABLE [dbo].[Documents](
 ) ON [PRIMARY]
 
 
-CREATE TABLE [dbo].[DescriptionTB](
-	[DescriptionID] [int] IDENTITY(1,1) NOT NULL,
-	[Description] [varchar](100) NULL,
-	[ProjectID] [int] NULL,
-	[TimeSheetMasterID] [int] NULL,
-	[CreatedOn] [datetime] NULL,
-	[UserID] [int] NULL,
- CONSTRAINT [PK_DescriptionTB] PRIMARY KEY CLUSTERED 
-(
-	[DescriptionID] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
 SET IDENTITY_INSERT [dbo].[DescriptionTB] ON
 INSERT [dbo].[DescriptionTB] ([DescriptionID], [Description], [ProjectID], [TimeSheetMasterID], [CreatedOn], [UserID]) VALUES (1, N'Demo', 1, 1, CAST(0x0000A8DD00100535 AS DateTime), 47)
 SET IDENTITY_INSERT [dbo].[DescriptionTB] OFF
 Go
-CREATE TABLE [dbo].[AuditTB](
-	[AuditID] [int] IDENTITY(1,1) NOT NULL,
-	[UserID] [varchar](50) NULL,
-	[SessionID] [varchar](50) NULL,
-	[IPAddress] [varchar](50) NULL,
-	[PageAccessed] [varchar](200) NULL,
-	[LoggedInAt] [datetime] NULL,
-	[LoggedOutAt] [datetime] NULL,
-	[LoginStatus] [varchar](200) NULL,
-	[ControllerName] [varchar](200) NULL,
-	[ActionName] [varchar](200) NULL,
-	[UrlReferrer] [varchar](200) NULL,
- CONSTRAINT [PK_AuditTB] PRIMARY KEY CLUSTERED 
-(
-	[AuditID] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
 
 
 GO 

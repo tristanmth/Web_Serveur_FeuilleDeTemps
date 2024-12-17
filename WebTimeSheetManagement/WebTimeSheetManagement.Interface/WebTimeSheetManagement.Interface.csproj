@@ -103,6 +103,7 @@
     <Compile Include="IAssignRoles.cs" />
     <Compile Include="IAudit.cs" />
     <Compile Include="ILogin.cs" />
+    <Compile Include="INotification.cs" />
     <Compile Include="IProject.cs" />
     <Compile Include="IRoles.cs" />
     <Compile Include="IRegistration.cs" />
