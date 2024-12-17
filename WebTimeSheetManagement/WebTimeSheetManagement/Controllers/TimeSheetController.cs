@@ -527,15 +527,17 @@ namespace WebTimeSheetManagement.Controllers
         {
             try
             {
-                TimeSheetAuditTB objAuditTB = new TimeSheetAuditTB();
-                objAuditTB.ApprovalTimeSheetLogID = 0;
-                objAuditTB.TimeSheetID = TimeSheetMasterID;
-                objAuditTB.Status = Status;
-                objAuditTB.CreatedOn = DateTime.Now;
-                objAuditTB.Comment = string.Empty;
-                objAuditTB.ApprovalUser = _IUsers.GetAdminIDbyUserID(Convert.ToInt32(Session["UserID"]));
-                objAuditTB.ProcessedDate = DateTime.Now;
-                objAuditTB.UserID = Convert.ToInt32(Session["UserID"]);
+                TimeSheetAuditTB objAuditTB = new TimeSheetAuditTB
+                {
+                    ApprovalTimeSheetLogID = 0,
+                    TimeSheetID = TimeSheetMasterID,
+                    Status = Status,
+                    CreatedOn = DateTime.Now,
+                    Comment = string.Empty,
+                    ApprovalUser = _IUsers.GetAdminIDbyUserID(Convert.ToInt32(Session["UserID"])),
+                    ProcessedDate = DateTime.Now,
+                    UserID = Convert.ToInt32(Session["UserID"])
+                };
                 return objAuditTB;
             }
             catch (Exception)

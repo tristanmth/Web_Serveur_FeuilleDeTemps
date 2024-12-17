@@ -5,20 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebTimeSheetManagement.Concrete;
-using WebTimeSheetManagement.Interface;
-using WebTimeSheetManagement.Models;
 using CaptchaMvc;
 using CaptchaMvc.HtmlHelpers;
+using WebTimeSheetManagement.Concrete;
 using WebTimeSheetManagement.Helpers;
+using WebTimeSheetManagement.Interface;
+using WebTimeSheetManagement.Models;
 
 namespace WebTimeSheetManagement.Controllers
 {
     public class LoginController : Controller
     {
-        private ILogin _ILogin;
-        private IAssignRoles _IAssignRoles;
-        private ICacheManager _ICacheManager;
+        private readonly ILogin _ILogin;
+        private readonly IAssignRoles _IAssignRoles;
+        private readonly ICacheManager _ICacheManager;
         public LoginController()
         {
             _ILogin = new LoginConcrete();
@@ -61,7 +61,7 @@ namespace WebTimeSheetManagement.Controllers
                         else
                         {
                             var RoleID = result.RoleID;
-                            remove_Anonymous_Cookies(); //Remove Anonymous_Cookies
+                            Remove_Anonymous_Cookies(); //Remove Anonymous_Cookies
 
                             Session["RoleID"] = Convert.ToString(result.RoleID);
                             Session["Username"] = Convert.ToString(result.Username);
@@ -131,9 +131,11 @@ namespace WebTimeSheetManagement.Controllers
                 Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
                 Response.Cache.SetNoStore();
 
-                HttpCookie Cookies = new HttpCookie("WebTime");
-                Cookies.Value = "";
-                Cookies.Expires = DateTime.Now.AddHours(-1);
+                HttpCookie Cookies = new HttpCookie("WebTime")
+                {
+                    Value = "",
+                    Expires = DateTime.Now.AddHours(-1)
+                };
                 Response.Cookies.Add(Cookies);
                 HttpContext.Session.Clear();
                 Session.Abandon();
@@ -146,15 +148,17 @@ namespace WebTimeSheetManagement.Controllers
         }
 
         [NonAction]
-        public void remove_Anonymous_Cookies()
+        public void Remove_Anonymous_Cookies()
         {
             try
             {
 
                 if (Request.Cookies["WebTime"] != null)
                 {
-                    var option = new HttpCookie("WebTime");
-                    option.Expires = DateTime.Now.AddDays(-1);
+                    var option = new HttpCookie("WebTime")
+                    {
+                        Expires = DateTime.Now.AddDays(-1)
+                    };
                     Response.Cookies.Add(option);
                 }
             }

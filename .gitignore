@@ -1,9 +1,7 @@
-/WebTimeSheetManagement/WebTimeSheetManagement/bin
-/WebTimeSheetManagement/WebTimeSheetManagement.Concrete/bin
-/WebTimeSheetManagement/WebTimeSheetManagement.Interface/bin
-/WebTimeSheetManagement/WebTimeSheetManagement.Models/bin
-/WebTimeSheetManagement/WebTimeSheetManagement/obj
-/WebTimeSheetManagement/WebTimeSheetManagement.Concrete/obj
-/WebTimeSheetManagement/WebTimeSheetManagement.Interface/obj
-/WebTimeSheetManagement/WebTimeSheetManagement.Models/obj
-/WebTimeSheetManagement/packages
+
+/.vs
+/WebTimeSheetManagement/.vs
+/WebTimeSheetManagement/WebTimeSheetManagement/.vs
+/WebTimeSheetManagement/WebTimeSheetManagement.Concrete/.vs
+/WebTimeSheetManagement/WebTimeSheetManagement.Interface/.vs
+/WebTimeSheetManagement/WebTimeSheetManagement.Models/.vs

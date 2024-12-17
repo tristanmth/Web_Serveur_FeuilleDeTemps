@@ -22,20 +22,4 @@ namespace WebTimeSheetManagement.Models
         public int UserID { get; set; }
     }
 
-    [Table("ExpenseAuditTB")]
-    public class ExpenseAuditTB
-    {
-        [Key]
-        public int ApprovaExpenselLogID { get; set; }
-        public int ApprovalUser { get; set; }
-        public DateTime? ProcessedDate { get; set; }
-        public DateTime? CreatedOn { get; set; }
-        public string Comment { get; set; }
-        public int Status { get; set; }
-        public int ExpenseID { get; set; }
-        public int UserID { get; set; }
-    }
-
-
-
 }

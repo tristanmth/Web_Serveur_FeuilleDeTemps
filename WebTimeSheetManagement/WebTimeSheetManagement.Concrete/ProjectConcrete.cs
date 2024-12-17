@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebTimeSheetManagement.Interface;
-using WebTimeSheetManagement.Models;
 using System.Linq.Dynamic;
 using System.Data.SqlClient;
 using System.Configuration;
 using Dapper;
+using WebTimeSheetManagement.Interface;
+using WebTimeSheetManagement.Models;
 
 namespace WebTimeSheetManagement.Concrete
 {
@@ -145,31 +145,6 @@ namespace WebTimeSheetManagement.Concrete
             }
         }
 
-        public bool CheckProjectIDExistsInExpense(int ProjectID)
-        {
-            try
-            {
-                using (var _context = new DatabaseContext())
-                {
-                    var result = (from expense in _context.ExpenseModel
-                                  where expense.ProjectID == ProjectID
-                                  select expense).Count();
-
-                    if (result > 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         public int ProjectDelete(int ProjectID)
         {

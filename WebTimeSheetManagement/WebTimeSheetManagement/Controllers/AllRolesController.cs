@@ -12,7 +12,7 @@ namespace WebTimeSheetManagement.Controllers
     [ValidateSuperAdminSession]
     public class AllRolesController : Controller
     {
-        IAssignRoles _IAssignRoles;
+        readonly IAssignRoles _IAssignRoles;
         public AllRolesController()
         {
             _IAssignRoles = new AssignRolesConcrete();
@@ -43,7 +43,7 @@ namespace WebTimeSheetManagement.Controllers
                 recordsTotal = rolesData.Count();
                 var data = rolesData.Skip(skip).Take(pageSize).ToList();
 
-                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+                return Json(new { draw, recordsFiltered = recordsTotal, recordsTotal, data });
             }
             catch (Exception)
             {

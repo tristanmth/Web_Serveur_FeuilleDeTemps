@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebTimeSheetManagement.Interface;
-using WebTimeSheetManagement.Models;
 using System.Linq.Dynamic;
 using System.Data.Entity.SqlServer;
 using System.Data.Entity.Core.Objects;
@@ -12,6 +10,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Entity;
 using Dapper;
+using WebTimeSheetManagement.Interface;
+using WebTimeSheetManagement.Models;
 
 namespace WebTimeSheetManagement.Concrete
 {

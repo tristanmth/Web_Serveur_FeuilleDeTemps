@@ -14,9 +14,9 @@ namespace WebTimeSheetManagement.Controllers
     public class ShowAllTimeSheetController : Controller
     {
 
-        IProject _IProject;
-        IUsers _IUsers;
-        ITimeSheet _ITimeSheet;
+        readonly IProject _IProject;
+        readonly IUsers _IUsers;
+        readonly ITimeSheet _ITimeSheet;
         public ShowAllTimeSheetController()
         {
             _IProject = new ProjectConcrete();
@@ -49,7 +49,10 @@ namespace WebTimeSheetManagement.Controllers
                 recordsTotal = timesheetdata.Count();
                 var data = timesheetdata.Skip(skip).Take(pageSize).ToList();
 
-                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+                return Json(new { draw,
+                    recordsFiltered = recordsTotal,
+                    recordsTotal,
+                    data });
             }
             catch (Exception)
             {
@@ -67,12 +70,14 @@ namespace WebTimeSheetManagement.Controllers
                     return RedirectToAction("TimeSheet", "AllTimeSheet");
                 }
 
-                MainTimeSheetView objMT = new MainTimeSheetView();
-                objMT.ListTimeSheetDetails = _ITimeSheet.TimesheetDetailsbyTimeSheetMasterID(Convert.ToInt32(id));
-                objMT.ListofProjectNames = _ITimeSheet.GetProjectNamesbyTimeSheetMasterID(Convert.ToInt32(id));
-                objMT.ListofPeriods = _ITimeSheet.GetPeriodsbyTimeSheetMasterID(Convert.ToInt32(id));
-                objMT.ListoDayofWeek = DayofWeek();
-                objMT.TimeSheetMasterID = Convert.ToInt32(id);
+                MainTimeSheetView objMT = new MainTimeSheetView
+                {
+                    ListTimeSheetDetails = _ITimeSheet.TimesheetDetailsbyTimeSheetMasterID(Convert.ToInt32(id)),
+                    ListofProjectNames = _ITimeSheet.GetProjectNamesbyTimeSheetMasterID(Convert.ToInt32(id)),
+                    ListofPeriods = _ITimeSheet.GetPeriodsbyTimeSheetMasterID(Convert.ToInt32(id)),
+                    ListoDayofWeek = DayofWeek(),
+                    TimeSheetMasterID = Convert.ToInt32(id)
+                };
                 return View(objMT);
             }
             catch (Exception)
@@ -85,15 +90,17 @@ namespace WebTimeSheetManagement.Controllers
         [NonAction]
         public List<string> DayofWeek()
         {
-            List<string> li = new List<string>();
-            li.Add("Sunday");
-            li.Add("Monday");
-            li.Add("Tuesday");
-            li.Add("Wednesday");
-            li.Add("Thursday");
-            li.Add("Friday");
-            li.Add("Saturday");
-            li.Add("Total");
+            List<string> li = new List<string>
+            {
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Total"
+            };
             return li;
         }
 
@@ -171,15 +178,17 @@ namespace WebTimeSheetManagement.Controllers
         {
             try
             {
-                TimeSheetAuditTB objAuditTB = new TimeSheetAuditTB();
-                objAuditTB.ApprovalTimeSheetLogID = 0;
-                objAuditTB.TimeSheetID = TimeSheetApproval.TimeSheetMasterID;
-                objAuditTB.Status = Status;
-                objAuditTB.CreatedOn = DateTime.Now;
-                objAuditTB.Comment = TimeSheetApproval.Comment;
-                objAuditTB.ApprovalUser = Convert.ToInt32(Session["AdminUser"]);
-                objAuditTB.ProcessedDate = DateTime.Now;
-                objAuditTB.UserID = _IUsers.GetUserIDbyTimesheetID(TimeSheetApproval.TimeSheetMasterID);
+                TimeSheetAuditTB objAuditTB = new TimeSheetAuditTB
+                {
+                    ApprovalTimeSheetLogID = 0,
+                    TimeSheetID = TimeSheetApproval.TimeSheetMasterID,
+                    Status = Status,
+                    CreatedOn = DateTime.Now,
+                    Comment = TimeSheetApproval.Comment,
+                    ApprovalUser = Convert.ToInt32(Session["AdminUser"]),
+                    ProcessedDate = DateTime.Now,
+                    UserID = _IUsers.GetUserIDbyTimesheetID(TimeSheetApproval.TimeSheetMasterID)
+                };
                 return objAuditTB;
             }
             catch (Exception)
@@ -249,7 +258,10 @@ namespace WebTimeSheetManagement.Controllers
                 recordsTotal = timesheetdata.Count();
                 var data = timesheetdata.Skip(skip).Take(pageSize).ToList();
 
-                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+                return Json(new { draw,
+                    recordsFiltered = recordsTotal,
+                    recordsTotal,
+                    data });
             }
             catch (Exception)
             {
@@ -277,7 +289,10 @@ namespace WebTimeSheetManagement.Controllers
                 recordsTotal = timesheetdata.Count();
                 var data = timesheetdata.Skip(skip).Take(pageSize).ToList();
 
-                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+                return Json(new { draw,
+                    recordsFiltered = recordsTotal,
+                    recordsTotal,
+                    data });
             }
             catch (Exception)
             {
@@ -305,7 +320,10 @@ namespace WebTimeSheetManagement.Controllers
                 recordsTotal = timesheetdata.Count();
                 var data = timesheetdata.Skip(skip).Take(pageSize).ToList();
 
-                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+                return Json(new { draw,
+                    recordsFiltered = recordsTotal,
+                    recordsTotal,
+                    data });
             }
             catch (Exception)
             {

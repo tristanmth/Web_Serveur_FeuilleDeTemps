@@ -15,7 +15,6 @@ namespace WebTimeSheetManagement.Interface
         int SaveProject(ProjectMaster ProjectMaster);
         IQueryable<ProjectMaster> ShowProjects(string sortColumn, string sortColumnDir, string Search);
         bool CheckProjectIDExistsInTimesheet(int ProjectID);
-        bool CheckProjectIDExistsInExpense(int ProjectID);
         int ProjectDelete(int ProjectID);
         int GetTotalProjectsCounts();
     }

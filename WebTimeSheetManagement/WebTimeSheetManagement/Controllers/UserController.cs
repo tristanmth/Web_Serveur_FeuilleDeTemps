@@ -13,7 +13,6 @@ namespace WebTimeSheetManagement.Controllers
     public class UserController : Controller
     {
         private ITimeSheet _ITimeSheet;
-        //private IExpense _IExpense;
 
         public UserController()
         {

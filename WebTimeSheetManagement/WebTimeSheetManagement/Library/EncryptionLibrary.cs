@@ -14,8 +14,6 @@ namespace EventApplicationCore.Library
         {
             byte[] encryptedBytes = null;
 
-            // Set your salt here, change it to meet your flavor:
-            // The salt bytes must be at least 8 bytes.
             byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
 
             using (MemoryStream ms = new MemoryStream())
@@ -49,8 +47,6 @@ namespace EventApplicationCore.Library
             {
                 byte[] decryptedBytes = null;
 
-                // Set your salt here, change it to meet your flavor:
-                // The salt bytes must be at least 8 bytes.
                 byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
 
                 using (MemoryStream ms = new MemoryStream())
@@ -103,57 +99,6 @@ namespace EventApplicationCore.Library
             catch (Exception)
             {
                 throw;
-            }
-        }
-
-        public static string DecryptText(string input, string password = "E6t187^D43%F")
-        {
-            try
-            {
-                // Get the bytes of the string
-                byte[] bytesToBeDecrypted = Convert.FromBase64String(input);
-                byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
-                passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
-
-                byte[] bytesDecrypted = AES_Decrypt(bytesToBeDecrypted, passwordBytes);
-
-                string result = Encoding.UTF8.GetString(bytesDecrypted);
-
-                return result;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public static class KeyGenerator
-        {
-            public static string GetUniqueKey(int maxSize = 15)
-            {
-                try
-                {
-                    char[] chars = new char[62];
-                    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
-                    byte[] data = new byte[1];
-                    using (RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider())
-                    {
-                        crypto.GetNonZeroBytes(data);
-                        data = new byte[maxSize];
-                        crypto.GetNonZeroBytes(data);
-                    }
-                    StringBuilder result = new StringBuilder(maxSize);
-                    foreach (byte b in data)
-                    {
-                        result.Append(chars[b % (chars.Length)]);
-                    }
-                    return result.ToString();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
             }
         }
     }

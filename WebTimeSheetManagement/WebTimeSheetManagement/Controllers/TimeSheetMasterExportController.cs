@@ -7,11 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebTimeSheetManagement.Models;
 using WebTimeSheetManagement.Concrete;
 using WebTimeSheetManagement.Filters;
 using WebTimeSheetManagement.Helpers;
 using WebTimeSheetManagement.Interface;
-using WebTimeSheetManagement.Models;
 
 namespace WebTimeSheetManagement.Controllers
 {
@@ -105,7 +105,7 @@ namespace WebTimeSheetManagement.Controllers
                                 for (int i = 0; i < ListofProjectNames.Count(); i++)
                                 {
                                     var ListofHours = MethodonViews.GetHoursbyTimeSheetMasterID(timesheetID, ListofProjectNames[i].ProjectID);
-                                    var ListofDescription = WebTimeSheetManagement.Helpers.MethodonViews.GetDescriptionbyTimeSheetMasterID(timesheetID, ListofProjectNames[i].ProjectID);
+                                    var ListofDescription = MethodonViews.GetDescriptionbyTimeSheetMasterID(timesheetID, ListofProjectNames[i].ProjectID);
                                     DataRow row1 = dt.NewRow();
                                     row1["ProjectName"] = ListofProjectNames[i].ProjectName;
                                     row1["Sunday"] = ListofHours[0].Hours;

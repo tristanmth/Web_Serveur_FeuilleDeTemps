@@ -13,7 +13,7 @@ namespace WebTimeSheetManagement.Controllers
 
     public class AllUsersController : Controller
     {
-        private IUsers _IUsers;
+        private readonly IUsers _IUsers;
         public AllUsersController()
         {
             _IUsers = new UsersConcrete();
@@ -44,7 +44,10 @@ namespace WebTimeSheetManagement.Controllers
                 recordsTotal = rolesData.Count();
                 var data = rolesData.Skip(skip).Take(pageSize).ToList();
 
-                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+                return Json(new { draw,
+                    recordsFiltered = recordsTotal,
+                    recordsTotal,
+                    data });
             }
             catch (Exception)
             {
@@ -93,7 +96,10 @@ namespace WebTimeSheetManagement.Controllers
                 recordsTotal = rolesData.Count();
                 var data = rolesData.Skip(skip).Take(pageSize).ToList();
 
-                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+                return Json(new { draw,
+                    recordsFiltered = recordsTotal,
+                    recordsTotal,
+                    data });
             }
             catch (Exception)
             {

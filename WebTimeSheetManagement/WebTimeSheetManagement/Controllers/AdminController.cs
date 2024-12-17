@@ -12,13 +12,11 @@ namespace WebTimeSheetManagement.Controllers
     [ValidateAdminSession]
     public class AdminController : Controller
     {
-        private ITimeSheet _ITimeSheet;
-       // private IExpense _IExpense;
+        private readonly ITimeSheet _ITimeSheet;
         
         public AdminController()
         {
             _ITimeSheet = new TimeSheetConcrete();
-           // _IExpense = new ExpenseConcrete();
         }
         // GET: Admin
         [HttpGet]
@@ -41,22 +39,6 @@ namespace WebTimeSheetManagement.Controllers
                     ViewBag.RejectedTimesheetCount = 0;
                 }
 
-                /*
-                var expenseResult = _IExpense.GetExpenseAuditCountByAdminID(Convert.ToString(Session["AdminUser"]));
-                
-                if (expenseResult != null)
-                {
-                    ViewBag.SubmittedExpenseCount = expenseResult.SubmittedCount;
-                    ViewBag.ApprovedExpenseCount = expenseResult.ApprovedCount;
-                    ViewBag.RejectedExpenseCount = expenseResult.RejectedCount;
-                }
-                else
-                {
-                    ViewBag.SubmittedExpenseCount = 0;
-                    ViewBag.ApprovedExpenseCount = 0;
-                    ViewBag.RejectedExpenseCount = 0;
-                }
-                */
                 return View();
             }
             catch (Exception)

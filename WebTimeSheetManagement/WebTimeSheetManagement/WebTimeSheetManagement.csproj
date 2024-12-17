@@ -259,7 +259,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AddNotificationController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AllRolesController.cs" />
     <Compile Include="Controllers\AllTimeSheetController.cs" />
@@ -321,9 +320,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ajaxjquery.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -342,6 +338,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="ApplicationInsights.config" />
     <None Include="Properties\PublishProfiles\Sai.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -595,9 +592,7 @@
     <Content Include="Views\AllTimeSheet\ApprovedTimeSheet.cshtml" />
     <Content Include="Views\AllTimeSheet\RejectedTimeSheet.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\TimeSheetMaster\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

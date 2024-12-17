@@ -107,8 +107,6 @@
     <Compile Include="ChangePasswordModel.cs" />
     <Compile Include="DescriptionTB.cs" />
     <Compile Include="DisplayViewModel.cs" />
-    <Compile Include="Documents.cs" />
-    <Compile Include="DocumentsVM.cs" />
     <Compile Include="LoginViewModel.cs" />
     <Compile Include="NotificationsTB.cs" />
     <Compile Include="ProjectMaster.cs" />

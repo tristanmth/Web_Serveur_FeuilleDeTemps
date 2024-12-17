@@ -7,13 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebTimeSheetManagement.Models
 {
-    public class TimeSheetExportModel
-    {
-        public int TimeSheetMasterID { get; set; }
-        public int TotalHours { get; set; }
-        public string Name { get; set; }
-    }
-
+    
     public class GetPeriods
     {
         public string Period { get; set; }
@@ -37,17 +31,6 @@ namespace WebTimeSheetManagement.Models
         public DateTime? FromDate { get; set; }
 
         [Display(Name = "TimeSheet To Date")]
-        [Required(ErrorMessage = "Please Choose To Date")]
-        public DateTime? ToDate { get; set; }
-    }
-
-    public class ExpenseExcelExportModel
-    {
-        [Display(Name = "Expense From Date")]
-        [Required(ErrorMessage = "Please Choose From Date")]
-        public DateTime? FromDate { get; set; }
-
-        [Display(Name = "Expense To Date")]
         [Required(ErrorMessage = "Please Choose To Date")]
         public DateTime? ToDate { get; set; }
     }
